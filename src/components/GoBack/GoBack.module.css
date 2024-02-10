@@ -1,0 +1,18 @@
+.goBack {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: black;
+  border-radius: 8px;
+}
+
+.goBack:hover {
+  color: rgb(128, 91, 231);
+}
+
+.goBack::before {
+  content: "\2190";
+  margin-right: 8px;
+  font-size: 18px;
+}

@@ -6,6 +6,8 @@ import { MyLoader } from "../../components/Loader/Loader";
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [loadind, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     const fetchTrendMovies = async () => {
       try {
@@ -13,7 +15,7 @@ const HomePage = () => {
         const response = await getTrendMovies();
         setMovies(response.data.results);
       } catch (error) {
-        console.error("Error fetching trend movies:", error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -24,6 +26,9 @@ const HomePage = () => {
 
   return (
     <>
+      {error && (
+        <p>Whoops, something went wrong! Please try reloading this page!</p>
+      )}
       {loadind && <MyLoader />}
       {movies.length > 0 && <MooviList movies={movies} />}
     </>

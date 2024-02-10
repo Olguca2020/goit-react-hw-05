@@ -1,4 +1,6 @@
 import css from "./MooviList.module.css";
+import { Link } from "react-router-dom";
+
 export const MooviList = ({ movies }) => {
   return (
     <>
@@ -6,10 +8,11 @@ export const MooviList = ({ movies }) => {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id} className={css.filmName}>
-            <a href={movie.poster_path}>{movie.title}</a>
+            <Link to={`/movies/:movieId`}>{movie.title}</Link>
           </li>
         ))}
       </ul>
     </>
   );
 };
+// movie.poster_path
