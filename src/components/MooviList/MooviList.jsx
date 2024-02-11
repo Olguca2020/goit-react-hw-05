@@ -8,11 +8,10 @@ export const MooviList = ({ movies }) => {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id} className={css.filmName}>
-            <Link to={`/movies/:movieId`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
       </ul>
     </>
   );
 };
-// movie.poster_path

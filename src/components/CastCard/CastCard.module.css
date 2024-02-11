@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card {
+  flex-basis: calc((100% - 50px) / 6);
+}
+img {
+  display: block;
+
+  object-fit: cover;
+}
+ul {
+  list-style: none;
+}
