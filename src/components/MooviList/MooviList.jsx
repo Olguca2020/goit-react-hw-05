@@ -3,15 +3,12 @@ import { Link } from "react-router-dom";
 
 export const MooviList = ({ movies }) => {
   return (
-    <>
-      <p className={css.titleList}>Trending today</p>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id} className={css.filmName}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul>
+      {movies.map((movie) => (
+        <li key={movie.id} className={css.filmName}>
+          <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+        </li>
+      ))}
+    </ul>
   );
 };

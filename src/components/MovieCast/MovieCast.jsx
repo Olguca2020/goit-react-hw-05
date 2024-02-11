@@ -10,12 +10,12 @@ const MovieCast = () => {
   const [error, setError] = useState(false);
   const [cast, setCast] = useState(null);
   useEffect(() => {
+    if (!movieId) return;
     async function fetchData() {
       try {
         setLoading(true);
         const response = await getCreditsMovie(movieId);
         setCast(response.data.cast);
-        console.dir(response.data.cast);
       } catch (error) {
         setError(true);
       } finally {

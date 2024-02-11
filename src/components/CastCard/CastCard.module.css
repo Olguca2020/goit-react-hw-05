@@ -8,7 +8,7 @@
 }
 img {
   display: block;
-
+  height: 376px;
   object-fit: cover;
 }
 ul {

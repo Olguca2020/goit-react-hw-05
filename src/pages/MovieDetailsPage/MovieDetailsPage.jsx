@@ -10,6 +10,7 @@ export default function MovieDetailsPage() {
   const [loadind, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [movie, setMovie] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       try {
