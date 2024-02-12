@@ -28,7 +28,7 @@ export const MovieCard = ({ card }) => {
           <h2>Overview</h2>
           <p>{card.overview}</p>
           <h3>Genres </h3>
-          <p>{card.genres.map((gen) => gen.name)}</p>
+          <p>{card.genres.map((gen) => gen.name).join(", ")}</p>
         </div>
       </div>
       <div className={css.addInfoWrapper}>
