@@ -1,6 +1,7 @@
 import css from "./MovieCard.module.css";
 import { Outlet, NavLink } from "react-router-dom";
 import clsx from "clsx";
+import { Suspense } from "react";
 
 export const MovieCard = ({ card }) => {
   const buildLinkClass = ({ isActive }) => {
@@ -45,7 +46,9 @@ export const MovieCard = ({ card }) => {
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
