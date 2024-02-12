@@ -8,7 +8,7 @@ export const NavBar = () => {
   };
   return (
     <nav className={css.navigation}>
-      <NavLink to="/home" className={buildLinkClass}>
+      <NavLink to="/" className={buildLinkClass}>
         Home
       </NavLink>
       <NavLink to="/movies" className={buildLinkClass}>
