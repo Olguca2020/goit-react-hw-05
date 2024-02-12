@@ -30,7 +30,11 @@ const MovieCast = () => {
         <p>Whoops, something went wrong! Please try reloading this page!</p>
       )}
       {loadind && <MyLoader />}
-      {cast && <CastCard cast={cast} />}
+      {cast && cast.length > 0 ? (
+        <CastCard cast={cast} />
+      ) : (
+        <h2>We don`t have any cast for this movie</h2>
+      )}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { GoBack } from "../../components/GoBack/GoBack";
 import { getMovieById } from "../../film-api";
 import { useEffect, useState } from "react";
@@ -10,7 +10,10 @@ export default function MovieDetailsPage() {
   const [loadind, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/movies";
 
+  console.log(location.state);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -27,7 +30,7 @@ export default function MovieDetailsPage() {
   }, [movieId]);
   return (
     <>
-      <Link to="/home">{<GoBack />}</Link>
+      <Link to={backLinkHref}>{<GoBack />}</Link>
       {error && (
         <p>Whoops, something went wrong! Please try reloading this page!</p>
       )}
