@@ -1,6 +1,6 @@
 import { useState } from "react";
 import css from "./SearchBar.module.css";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 export const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
@@ -8,7 +8,7 @@ export const SearchBar = ({ onSearch }) => {
     ev.preventDefault();
 
     if (query.trim() === "") {
-      toast.error("Add a search term");
+      toast.error("Enter your query please!");
       return;
     }
     onSearch(query);
@@ -20,16 +20,19 @@ export const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleForm} className={css.searchForm}>
-      <input
-        name="query"
-        type="text"
-        autoComplete="off"
-        autoFocus
-        value={query}
-        onChange={handleInputChange}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      <Toaster />
+      <form onSubmit={handleForm} className={css.searchForm}>
+        <input
+          name="query"
+          type="text"
+          autoComplete="off"
+          autoFocus
+          value={query}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </>
   );
 };
